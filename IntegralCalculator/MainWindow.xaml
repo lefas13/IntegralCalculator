@@ -1,12 +1,37 @@
-﻿<Window x:Class="IntegralCalculator.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IntegralCalculator"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+﻿<Window x:Class="IntegralCalculator.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Integral Calculator" Height="400" Width="800">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="280"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <!-- элементы для ввода данных -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Начальная граница:"/>
+        <TextBox x:Name="textBoxA" Grid.Row="0" Grid.Column="1"/>
 
+        <Label Grid.Row="1" Grid.Column="0" Content="Конечная граница:"/>
+        <TextBox x:Name="textBoxB" Grid.Row="1" Grid.Column="1"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Количество разбиений:"/>
+        <TextBox x:Name="textBoxN" Grid.Row="2" Grid.Column="1"/>
+
+        <!-- выпадающий список для выбора метода -->
+        <Label Grid.Row="3" Grid.Column="0" Content="Метод:"/>
+        <ComboBox x:Name="comboBoxMethod" Grid.Row="3" Grid.Column="1">
+        </ComboBox>
+
+        <!-- кнопка для вычисления интеграла -->
+        <Button x:Name="buttonCalculate" Grid.Row="4" Grid.Column="0"  Content="Вычислить" Click="buttonCalculate_Click"/>
+
+        <!-- текстовая метка для вывода результата -->
+        <TextBlock x:Name="labelResult" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
