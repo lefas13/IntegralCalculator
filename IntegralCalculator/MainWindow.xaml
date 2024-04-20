@@ -7,6 +7,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
@@ -20,18 +21,22 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Конечная граница:"/>
         <TextBox x:Name="textBoxB" Grid.Row="1" Grid.Column="1"/>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Количество разбиений:"/>
-        <TextBox x:Name="textBoxN" Grid.Row="2" Grid.Column="1"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Функции:"/>
+        <ComboBox x:Name="comboBoxFunc" Grid.Row="2" Grid.Column="1">
+        </ComboBox>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Количество разбиений:"/>
+        <TextBox x:Name="textBoxN" Grid.Row="3" Grid.Column="1"/>
 
         <!-- выпадающий список для выбора метода -->
-        <Label Grid.Row="3" Grid.Column="0" Content="Метод:"/>
-        <ComboBox x:Name="comboBoxMethod" Grid.Row="3" Grid.Column="1">
+        <Label Grid.Row="4" Grid.Column="0" Content="Метод:"/>
+        <ComboBox x:Name="comboBoxMethod" Grid.Row="4" Grid.Column="1">
         </ComboBox>
 
         <!-- кнопка для вычисления интеграла -->
-        <Button x:Name="buttonCalculate" Grid.Row="4" Grid.Column="0"  Content="Вычислить" Click="buttonCalculate_Click"/>
+        <Button x:Name="buttonCalculate" Grid.Row="5" Grid.Column="0"  Content="Вычислить" Click="buttonCalculate_Click"/>
 
         <!-- текстовая метка для вывода результата -->
-        <TextBlock x:Name="labelResult" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="labelResult" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
