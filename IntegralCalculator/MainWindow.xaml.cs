@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 
 namespace IntegralCalculator
 {
@@ -9,7 +10,6 @@ namespace IntegralCalculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        public event EventHandler<IntegralEventArgs> IntegralCalculated;
         public MainWindow()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace IntegralCalculator
 
                 // создание экземпляра класса Integral
                 Integral integral = new Integral();
-
+                integral.СalculationIntegral += Integral_Methods;
                 double result = 0.0;
 
                 // проверка выбранного метода и вызов соответствующего метода класса Integral
@@ -63,7 +63,6 @@ namespace IntegralCalculator
                     result = integral.TrapezoidMethod(f, a, b, n);
                     labelResult.Text = $"Результат вычисления интеграла методом трапеций: {result}";
                 }
-                OnIntegralCalculated(result);
             }
             catch (FormatException)
             {
@@ -78,9 +77,13 @@ namespace IntegralCalculator
                 MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        protected virtual void OnIntegralCalculated(double result)
+
+        private void Integral_Methods(object sender, EventArgs e)
         {
-            IntegralCalculated?.Invoke(this, new IntegralEventArgs(result));
+            if (comboBoxMethod.SelectedItem.ToString() == "Метод прямоугольников")
+                labelResult.Background = Brushes.Red;
+            else if (comboBoxMethod.SelectedItem.ToString() == "Метод трапеций")
+                labelResult.Background = Brushes.Green;
         }
     }
 }
